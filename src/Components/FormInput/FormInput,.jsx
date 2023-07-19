@@ -9,8 +9,8 @@ const FormInput = () => {
   const { sinhVien, edit } = useSelector((state) => {
     return state.arrSinhVien;
   });
-  console.log(sinhVien);
-  console.log(edit);
+  
+  // console.log(edit);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

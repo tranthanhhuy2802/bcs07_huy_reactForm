@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Search from "antd/es/transfer/search";
 
 const initialState = {
   arrSearch:[],
@@ -36,16 +37,24 @@ const sinhVienSlice = createSlice({
       }
     },
     getSinhVien: (state, action) => {
-      console.log(action.payload)
+      // console.log(action.payload)
       state.sinhVien = action.payload;
       
     },
     setEdit: (state,action)=>{
-      console.log(action.payload)
+      // console.log(action.payload)
       state.edit = action.payload
+    },
+    searchMaSV:(state,action) =>{
+      console.log(action.payload)
+     const maSV = action.payload
+     state.arrSearch = state.arrSinhVien.filter((sinhVien) => {
+      return sinhVien.maSV === maSV;
+    });
+    console.log(state.arrSearch)
     }
   },
 });
-export const { themSV, getSinhVien, xoaSV, suaSV,setEdit} = sinhVienSlice.actions;
+export const {searchMaSV, themSV, getSinhVien, xoaSV, suaSV,setEdit} = sinhVienSlice.actions;
 
 export default sinhVienSlice.reducer;
